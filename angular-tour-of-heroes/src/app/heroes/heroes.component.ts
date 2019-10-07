@@ -69,4 +69,20 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes)
   }
+
+
+  /**
+   * 
+   * @param name 
+   * When the given name is non-blank, the handler creates a Hero-like object from the name and passes it to the services addHero() method.
+   * When addHero() saves successfully, the subscribe() callback receives the new hero and pushes it into to the heroes list for display.
+   */
+  add(name: string): void {
+    name = name.trim();
+    if(!name) { return;}
+    this.heroService.addHero({ name}as Hero)
+    .subscribe(hero => {
+      this.heroes.push(hero);
+    });
+  }
 }

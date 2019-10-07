@@ -28,6 +28,9 @@ export class HeroDetailComponent implements OnInit {
     this.getHero();
   }
 
+  /**
+   * GetHero by heroService
+   */
   getHero(): void{
     //  route.snapshot is a static image of the route information shortly after the component was created.
     //  paramMap is a dictionary of route parameter values extracted from the URL. The "id" key returns the id of the hero to fetch.
@@ -36,5 +39,16 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.getHero(id)
     .subscribe(hero => this.hero = hero)
   }
+
+  save(): void{
+    this.heroService.updateHero(this.hero)
+    .subscribe(() => this.goBack());
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+
 
 }

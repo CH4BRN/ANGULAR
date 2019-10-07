@@ -52,12 +52,60 @@ export class HeroService {
    * HttpClient.get() returns the body of the response as an untyped JSON object by default. Applying the optional type specifier, <Hero[]> , gives you a typed result object.
    * 
    * catchError() operator intercepts an Observable that failed.
+   * 
+   * tap() operator looks at the observable values, does something with those values, and passes them along. 
+   * The tap() call back doesn't touch the values themselves.
    */
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
+        tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
+  }
+      
+   /**
+   * Get hero by ID 1st 
+   * @param id 
+   */
+  /*
+  //  Has an asynchronous signature. It returns a mock hero as an Observable, using the RxJS of() function.
+  getHero(id: number): Observable<Hero>{
+    // TODO: send the message _after_ fetching the hero
+    //   backticks ( ` ) define a JavaScript template literal for embedding the id.
+    this.log(`fetched hero id=${id}`);    
+    return of(HEROES.find(hero => hero.id === id))
+  }
+  */
+
+  /** GET hero by id. Will 404 if id not found 
+   * - getHero() constructs a request URL with the desired hero's id. The server should respond with a single hero rather than an array of heroes.
+   * returns an Observable<Hero> ("an observable of Hero objects") rather than an observable of hero arrays .
+  */
+  getHero(id: number): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
+  }
+
+  /** PUT: Update the hero on the server. */
+  updateHero (hero: Hero):Observable<any>{
+    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+
+  /** POST : Create an hero on the server
+   *  expects the server to generate an id for the new hero, which it returns in the Observable<Hero> to the caller.
+   */
+  addHero (hero: Hero): Observable<Hero>{
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    );
   }
 
   private handleError<T> (operation = 'operation', result?: T){
@@ -73,16 +121,12 @@ export class HeroService {
       return of(result as T);
     };
   }
-    
-   /**
-   * Get hero by ID.
-   * @param id 
+
+  /**
+   * The heroes web API expects a special header in HTTP save requests. That header is that httpOptions constant 
    */
-  //  Has an asynchronous signature. It returns a mock hero as an Observable, using the RxJS of() function.
-  getHero(id: number): Observable<Hero>{
-    // TODO: send the message _after_ fetching the hero
-    //   backticks ( ` ) define a JavaScript template literal for embedding the id.
-    this.log(`fetched hero id=${id}`);    
-    return of(HEROES.find(hero => hero.id === id))
-  }
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
 }

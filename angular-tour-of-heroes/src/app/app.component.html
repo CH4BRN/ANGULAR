@@ -1,7 +1,18 @@
 <h1>{{title}}</h1>
+<!--
+    <nav> element and, within that, anchor element that, when clicked, triggers navigation to the HeroesComponent.
+-->
+<nav>
+    <!--
+        RouterLink attribute is set to "/heroes", the string that the router matches to the route to HeroesComponent.
+    -->
+    <a routerLink="/heroes">Heroes</a>
+</nav>
+
 <router-outlet></router-outlet>
 <!-- 
     The AppComponent template no longer needs <app-heroes> because the app will only display the HeroesComponent when the user navigates to it.
     <app-heroes></app-heroes>
+    The <router-outlet> tells the router where to display routed views
 -->
 <app-messages></app-messages>

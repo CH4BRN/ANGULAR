@@ -4,18 +4,33 @@
     <!-- 
         With [], When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. 
         With (), we bind the event.
-    -->
+    
     <li *ngFor="let hero of heroes"  
         [class.selected]="hero === selectedHero"
         (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span>{{hero.name}}
     </li>
+    -->
+
+    <li *ngFor="let hero of heroes">
+
+        <a routerLink="/dtail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span>{{hero.name}}
+        </a>
+    </li>    
 </ul>
 
+<!--
+    Old hero details 
+-->
 <!-- 
     [hero]="selectedHero" is an angular one way property binding.
 -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!--
+    <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+-->
+
+
 
 <!--
     <h2>{{hero.name | uppercase}} Details</h2>

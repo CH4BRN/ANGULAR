@@ -26,8 +26,8 @@ export class HeroesComponent implements OnInit {
   // With the service ...
   heroes: Hero[];
 
-  // property to get the selected hero.
-  selectedHero: Hero;
+  // property to get the selected hero. No longer used because of HeroesComponent class.
+  // selectedHero: Hero;
 
   //  parameter simultaneously defines a private heroService property and identifies it as a HeroService injection site.
   constructor(
@@ -42,11 +42,13 @@ export class HeroesComponent implements OnInit {
       }
 
   /** 
-   * Called when a hero is selected. 
+   * Called when a hero is selected. No longer used because of HeroesComponent class.
    * */
+  /*
   onSelect(hero: Hero): void {
     this.selectedHero = hero
   }
+  */
 
   /** 
    * Get the heroes from the service 

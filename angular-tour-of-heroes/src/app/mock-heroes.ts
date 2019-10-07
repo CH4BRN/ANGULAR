@@ -1,5 +1,7 @@
 import { Hero } from './hero';
-
+/**
+ *  The in-memory-data.service.ts file replaces mock-heroes.ts.
+ */
 export const HEROES: Hero[] = [
   { id: 11, name: 'Dr Nice' },
   { id: 12, name: 'Narco' },

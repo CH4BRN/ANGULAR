@@ -55,6 +55,8 @@ export class HeroService {
    * 
    * tap() operator looks at the observable values, does something with those values, and passes them along. 
    * The tap() call back doesn't touch the values themselves.
+   * 
+   * The pipe takes in data as input and transforms it to the desired output.
    */
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
@@ -108,6 +110,43 @@ export class HeroService {
     );
   }
 
+  /** DELETE : delete the hero from the server
+   * 
+   */
+  deleteHero(hero: Hero | number): Observable<Hero>{
+    // If hero is a number, get the number, else if hero is an object, get its ID
+    const id = typeof hero === 'number' ? hero : hero.id;
+    // Gets the server url concatenated withe id
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.delete<Hero>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted hero id=${id}`)),
+      catchError(this.handleError<Hero>('deleted hero'))
+      );
+  }
+
+  /**GET heroes whos name contains search term
+   * 
+   */
+  searchHeroes(term: string): Observable<Hero[]>{
+    if(!term.trim()){
+      // If there is no search term, return empty hero array
+      return of([]);
+    }
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found heroes matching "${term}"`)),
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    )
+
+  }
+
+  
+
+  /**
+   * handle errors.
+   * @param operation 
+   * @param result 
+   */
   private handleError<T> (operation = 'operation', result?: T){
     return (error: any): Observable<T> => {
 

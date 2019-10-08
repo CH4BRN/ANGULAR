@@ -78,11 +78,19 @@ export class HeroesComponent implements OnInit {
    * When addHero() saves successfully, the subscribe() callback receives the new hero and pushes it into to the heroes list for display.
    */
   add(name: string): void {
+    // Remove the white space
     name = name.trim();
+    // If there is no name return empty string
     if(!name) { return;}
+    // else add casted hero
     this.heroService.addHero({ name}as Hero)
     .subscribe(hero => {
       this.heroes.push(hero);
     });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
   }
 }

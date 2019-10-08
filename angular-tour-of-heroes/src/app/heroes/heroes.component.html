@@ -1,6 +1,7 @@
 <h2>My Heroes</h2>
 
-<ul class="heroes">
+<ul 
+    class="heroes">
     <!-- 
         With [], When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. 
         With (), we bind the event.
@@ -12,13 +13,37 @@
     </li>
     -->
 
-    <li *ngFor="let hero of heroes">
+    <li 
+        *ngFor="let hero of heroes">
 
-        <a routerLink="/dtail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span>{{hero.name}}
+        <a 
+            routerLink="/detail/{{hero.id}}">
+            <span 
+                class="badge">{{hero.id}}</span>{{hero.name}}
+                
         </a>
+        <button 
+        class="delete" 
+        title="delete hero"
+        (click)="delete(hero)">x</button>
     </li>    
 </ul>
+
+<div>
+    <label> Hero name : 
+        <input #heroName />
+    </label>
+
+    <button 
+        (click)="add(heroName.value); heroName.value=''">
+        add
+    </button>
+
+
+    
+</div>
+
+
 
 <!--
     Old hero details 

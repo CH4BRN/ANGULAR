@@ -17,6 +17,7 @@ import { WeaponsComponent } from './weapons/weapons.component';
 import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { LogComponent } from './log/log.component';
 import { ClickMeComponent } from './click-me/click-me.component';
+import { KeyUpComponent } from './key-up/key-up.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ClickMeComponent } from './click-me/click-me.component';
     HeroSearchComponent,    
     WeaponsComponent, 
     WeaponDetailComponent, 
-    LogComponent, ClickMeComponent
+    LogComponent, ClickMeComponent, KeyUpComponent
   ],
   imports: [
     BrowserModule,

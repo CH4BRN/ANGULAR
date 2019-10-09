@@ -9,6 +9,7 @@ import { from } from 'rxjs';
 import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { LogComponent } from './log/log.component';
 import { ClickMeComponent } from './click-me/click-me.component';
+import { KeyUpComponent } from './key-up/key-up.component';
 
 /**
  A typical Angular Route has two properties:
@@ -50,6 +51,10 @@ const routes: Routes =[
   {
     path: 'click',
     component: ClickMeComponent
+  },
+  {
+    path: 'key',
+    component: KeyUpComponent
   }
 
 ];

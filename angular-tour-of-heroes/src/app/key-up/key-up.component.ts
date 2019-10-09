@@ -14,6 +14,10 @@ export class KeyUpComponent implements OnInit {
 
   values ='';
 
+  value = '';
+
+  blurValue ='';
+
   /**
    * 
    * @param event First onKey() method
@@ -29,6 +33,24 @@ export class KeyUpComponent implements OnInit {
    */
   onKey(event: KeyboardEvent){
     this.values += (event.target as HTMLInputElement).value + ' | ';
+  }
+
+  /**
+   * 
+   * @param value Third onKey method.
+   */
+  onKey2(value: string){
+    this.values += value + ' | ';
+  }
+
+
+  onEnter(value: string){
+    this.value = value;
+  }
+
+  update(value: string)
+  {
+    this.blurValue = value ;
   }
   ngOnInit() {
   }

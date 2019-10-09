@@ -11,6 +11,7 @@ import { LogComponent } from './log/log.component';
 import { ClickMeComponent } from './click-me/click-me.component';
 import { KeyUpComponent } from './key-up/key-up.component';
 import { LoopBackComponent } from './loop-back/loop-back.component';
+import { LittleTourComponent } from './little-tour/little-tour.component';
 
 /**
  A typical Angular Route has two properties:
@@ -58,8 +59,12 @@ const routes: Routes =[
     component: KeyUpComponent
   },
   {
-    path: 'loob-back',
+    path: 'loopback',
     component: LoopBackComponent
+  },
+  {
+    path: 'little-tour',
+    component: LittleTourComponent
   }
 
 ];

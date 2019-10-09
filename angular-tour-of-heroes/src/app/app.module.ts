@@ -18,6 +18,7 @@ import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { LogComponent } from './log/log.component';
 import { ClickMeComponent } from './click-me/click-me.component';
 import { KeyUpComponent } from './key-up/key-up.component';
+import { LoopBackComponent } from './loop-back/loop-back.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { KeyUpComponent } from './key-up/key-up.component';
     HeroSearchComponent,    
     WeaponsComponent, 
     WeaponDetailComponent, 
-    LogComponent, ClickMeComponent, KeyUpComponent
+    LogComponent, ClickMeComponent, KeyUpComponent, LoopBackComponent
   ],
   imports: [
     BrowserModule,

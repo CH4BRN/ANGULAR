@@ -17,7 +17,7 @@
         *ngFor="let hero of heroes">
 
         <a 
-            routerLink="/detail/{{hero.id}}">
+            routerLink="/hero-detail/{{hero.id}}">
             <span 
                 class="badge">{{hero.id}}</span>{{hero.name}}
                 
@@ -37,10 +37,7 @@
     <button 
         (click)="add(heroName.value); heroName.value=''">
         add
-    </button>
-
-
-    
+    </button>    
 </div>
 
 

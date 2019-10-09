@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Hero } from '../hero'
 // Import the mocked heroes
 // import { HEROES } from '../mock-heroes';
 import { HeroService } from '../hero.service';
+import { LogService } from 'app/log.service';
 
 @Component({
   selector: 'app-heroes',
@@ -11,6 +12,8 @@ import { HeroService } from '../hero.service';
 })
 
 export class HeroesComponent implements OnInit {
+
+private TAG:string = "HeroesComponent";
 
   /* My first hero :') 
   hero: Hero = {
@@ -31,7 +34,8 @@ export class HeroesComponent implements OnInit {
 
   //  parameter simultaneously defines a private heroService property and identifies it as a HeroService injection site.
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService,
+    private logService: LogService
   ) { }
 
   /**
@@ -39,6 +43,7 @@ export class HeroesComponent implements OnInit {
    */
   ngOnInit() {
     this.getHeroes();
+    this.logService.addLog(this.TAG, 'ngOnInit');
       }
 
   /** 
@@ -66,8 +71,9 @@ export class HeroesComponent implements OnInit {
    // happen now or several minutes from now. The subscribe() method passes
    // the emitted array to the callback, which sets the component's heroes property.
   getHeroes(): void{
+    this.logService.addLog(this.TAG, "getHeroes");
     this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes)
+    .subscribe(heroes => this.heroes = heroes);
   }
 
 
@@ -78,6 +84,7 @@ export class HeroesComponent implements OnInit {
    * When addHero() saves successfully, the subscribe() callback receives the new hero and pushes it into to the heroes list for display.
    */
   add(name: string): void {
+    this.logService.addLog(this.TAG, "add");
     // Remove the white space
     name = name.trim();
     // If there is no name return empty string
@@ -90,7 +97,12 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(hero: Hero): void {
+    this.logService.addLog(this.TAG, "delete");
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    this.logService.addLog(this.TAG, "ngOnChanges");   
   }
 }

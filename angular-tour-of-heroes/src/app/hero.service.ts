@@ -14,7 +14,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class HeroService {
 
   constructor(
-    private messsageService: MessageService,
+    private messageService: MessageService,
     private http: HttpClient
     
   ) { }
@@ -23,7 +23,7 @@ export class HeroService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string){
-    this.messsageService.add(`HeroService: ${message}`);
+    this.messageService.add(`HeroService: ${message}`);
   }
 
   /**First getHeroes method :

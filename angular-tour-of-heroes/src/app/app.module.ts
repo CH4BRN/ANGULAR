@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { RouterModule } from '@angular/router';
+import { WeaponsComponent } from './weapons/weapons.component';
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,    
+    WeaponsComponent, 
+    WeaponDetailComponent, 
+    LogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +40,11 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
       )
+      /*,
+      
+    RouterModule.forRoot([
+      { path: '', component: DiceComponent}
+    ])*/
     ],
   providers: [],
   bootstrap: [AppComponent]

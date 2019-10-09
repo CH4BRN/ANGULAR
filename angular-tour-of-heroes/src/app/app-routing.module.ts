@@ -4,6 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { WeaponsComponent } from './weapons/weapons.component';
+import { from } from 'rxjs';
+import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
+import { LogComponent } from './log/log.component';
 
 /**
  A typical Angular Route has two properties:
@@ -27,8 +31,22 @@ const routes: Routes =[
   },
   // :id indicates that :id is a placeholder for a specific hero id.
   {
-    path: 'detail/:id', component: HeroDetailComponent
+    path: 'hero-detail/:id', 
+    component: HeroDetailComponent
+  },
+  {
+    path: 'weapons',
+    component: WeaponsComponent
+  },
+  {
+    path: 'weapon-detail/:id',
+    component: WeaponDetailComponent
+  },
+  {
+    path: 'log',
+    component: LogComponent
   }
+
 ];
 
 @NgModule({

@@ -23,6 +23,9 @@ import { HeroChildComponent } from './hero-child/hero-child.component';
 import { HeroParentComponent } from './hero-parent/hero-parent.component';
 import { NameChildComponent } from './name-child/name-child.component';
 import { NameParentComponent } from './name-parent/name-parent.component';
+import { VersionChildComponent } from './version-child/version-child.component';
+import { VersionParentComponent } from './version-parent/version-parent.component';
+import { VoterComponent } from './voter/voter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import { NameParentComponent } from './name-parent/name-parent.component';
     HeroSearchComponent,    
     WeaponsComponent, 
     WeaponDetailComponent, 
-    LogComponent, ClickMeComponent, KeyUpComponent, LoopBackComponent, HeroChildComponent, HeroParentComponent, NameChildComponent, NameParentComponent
+    LogComponent, ClickMeComponent, KeyUpComponent, LoopBackComponent, HeroChildComponent, HeroParentComponent, NameChildComponent, NameParentComponent, VersionChildComponent, VersionParentComponent, VoterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,65 @@
+<h2>My Weapons</h2>
+<ul 
+    class="weapons">
+    <li 
+        *ngFor="let weapon of weapons">
+
+        <a 
+            routerLink="/weapon-detail/{{weapon.id}}">
+            <span 
+                class="badge">
+                {{weapon.id}}
+            </span>  
+            {{weapon.name}}  
+                        
+        </a>
+
+        <span
+        class="atq-badge">- {{weapon.atq}}
+    </span>
+
+        <button
+            class="delete" 
+            title="delete weapon"
+            (click)="delete(weapon)">
+            x
+        </button>
+    </li>    
+</ul>
+
+<div>
+    <ul>
+        <li>
+            <label> Name : 
+                <input #weaponName />
+            </label>
+        </li>
+        <li>
+            <label> Atq :
+                <input #weaponAtq />
+            </label>
+        </li>
+
+    </ul>
+    
+        <button 
+        class="add"
+            (click)="add(weaponName.value, weaponAtq.value); weaponName.value=''">
+            add
+        </button>    
+
+
+
+    </div>
+
+    <div>
+        <ul>
+            <li *ngFor="let change of changeLog">
+                {{change}}
+            </li>
+        </ul>
+    </div>
+
+
+    
+    

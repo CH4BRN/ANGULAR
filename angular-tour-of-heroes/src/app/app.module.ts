@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { WeaponsComponent } from './weapons/weapons.component';
 import { WeaponDetailComponent } from './weapon-detail/weapon-detail.component';
 import { LogComponent } from './log/log.component';
+import { ClickMeComponent } from './click-me/click-me.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { LogComponent } from './log/log.component';
     HeroSearchComponent,    
     WeaponsComponent, 
     WeaponDetailComponent, 
-    LogComponent
+    LogComponent, ClickMeComponent
   ],
   imports: [
     BrowserModule,

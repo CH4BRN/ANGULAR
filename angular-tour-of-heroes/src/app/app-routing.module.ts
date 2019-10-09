@@ -16,6 +16,7 @@ import { HeroParentComponent } from './hero-parent/hero-parent.component';
 import { NameParentComponent } from './name-parent/name-parent.component';
 import { VersionParentComponent } from './version-parent/version-parent.component';
 import { VoterComponent } from './voter/voter.component';
+import { VotetakerComponent } from './votetaker/votetaker.component';
 
 /**
  A typical Angular Route has two properties:
@@ -81,6 +82,10 @@ const routes: Routes =[
   {
     path: 'voter',
     component: VoterComponent
+  },
+  {
+    path: 'vote-taker',
+    component: VotetakerComponent
   }
 
 ];

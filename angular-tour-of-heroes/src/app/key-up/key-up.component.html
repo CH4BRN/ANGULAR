@@ -1,3 +1,21 @@
 <h2>Key up</h2>
+<p>onKey(event)</p>
 <input (keyup)="onKey($event)">
 <p> {{values}}</p>
+
+<p>onKey(box.value)</p>
+<input #box (keyup)="onKey2(box.value)">
+<p>{{values}}</p>
+
+<p>onEnter</p>
+<input #box2 (keyup.enter)="onEnter(box2.value)">
+<p>{{value}}</p>
+
+
+<p>Blur</p>
+<input #box3 
+(keyup.enter)="update(box3.value)"
+(blur)="update(box3.value)">
+<p>{{blurValue}}</p>
+
+

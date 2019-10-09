@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loop-back',
-  templateUrl: './loop-back.component.html',
-  styleUrls: ['./loop-back.component.css']
+  template: 
+  `
+    <input #box (leyup)="0">
+    <p>{{box.value}}</p>
+  `
 })
 export class LoopBackComponent implements OnInit {
 

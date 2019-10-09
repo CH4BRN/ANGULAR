@@ -22,6 +22,7 @@ import { LoopBackComponent } from './loop-back/loop-back.component';
 import { HeroChildComponent } from './hero-child/hero-child.component';
 import { HeroParentComponent } from './hero-parent/hero-parent.component';
 import { NameChildComponent } from './name-child/name-child.component';
+import { NameParentComponent } from './name-parent/name-parent.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { NameChildComponent } from './name-child/name-child.component';
     HeroSearchComponent,    
     WeaponsComponent, 
     WeaponDetailComponent, 
-    LogComponent, ClickMeComponent, KeyUpComponent, LoopBackComponent, HeroChildComponent, HeroParentComponent, NameChildComponent
+    LogComponent, ClickMeComponent, KeyUpComponent, LoopBackComponent, HeroChildComponent, HeroParentComponent, NameChildComponent, NameParentComponent
   ],
   imports: [
     BrowserModule,

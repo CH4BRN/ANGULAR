@@ -13,6 +13,7 @@ import { KeyUpComponent } from './key-up/key-up.component';
 import { LoopBackComponent } from './loop-back/loop-back.component';
 import { HeroChildComponent } from './hero-child/hero-child.component';
 import { HeroParentComponent } from './hero-parent/hero-parent.component';
+import { NameParentComponent } from './name-parent/name-parent.component';
 
 /**
  A typical Angular Route has two properties:
@@ -66,6 +67,10 @@ const routes: Routes =[
   {
     path: 'hero-parent',
     component: HeroParentComponent
+  },
+  {
+    path: 'name-parent',
+    component: NameParentComponent
   }
 
 ];

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, from } from 'rxjs';
+import { HeroService } from '../hero.service';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-hero-parent',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroParentComponent implements OnInit {
 
-  constructor() { }
+  heroes:Observable<Array<any>>;
 
+  constructor(private heroService : HeroService) { 
+
+
+  }
+
+  master = 'The Master';
+
+  
   ngOnInit() {
+    this.heroes = this.heroService.getHeroes();
+
   }
 
 }
